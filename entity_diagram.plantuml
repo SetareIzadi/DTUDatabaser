@@ -69,7 +69,7 @@ Roles::Role_name <-- ArticleJournalists::Role
 Journalists::Journalist_ID <-- ArticleJournalists::Journalist_ID
 Articles::Article_ID <-- ArticlePhotos::Article_ID
 Photos::Photo_ID <-- ArticlePhotos::Photo_ID
-ArticleJournalists::Article_ID <-- Articles::Article_ID
+ArticleJournalists::Article_ID --> Articles::Article_ID
 Articles::Edition_ID --> Editions::Edition_ID
 Editions::Newspaper_ID --> Newspapers::Newspaper_ID
 Editions::Editor_ID --> ArticleJournalists::Journalist_ID
