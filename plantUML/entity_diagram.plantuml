@@ -72,7 +72,7 @@ Photos::Photo_ID <-- ArticlePhotos::Photo_ID
 ArticleJournalists::Article_ID --> Articles::Article_ID
 Articles::Edition_ID --> Editions::Edition_ID
 Editions::Newspaper_ID --> Newspapers::Newspaper_ID
-Editions::Editor_ID --> ArticleJournalists::Journalist_ID
+Editions::Editor_ID --> Journalists::Journalist_ID
 Photos::Reporter_ID --> Journalists::Journalist_ID
 
 @enduml
