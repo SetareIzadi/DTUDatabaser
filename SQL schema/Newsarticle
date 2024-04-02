@@ -57,7 +57,7 @@ create table Editions (
     
     PRIMARY KEY (Edition_ID),
     FOREIGN KEY (Newspaper_ID) REFERENCES Newspapers(Newspaper_ID),
-    FOREIGN KEY (Editor_ID) REFERENCES Articles(Article_ID)
+    FOREIGN KEY (Editor_ID) REFERENCES Journalists(Journalist_ID)
 );
 
 
