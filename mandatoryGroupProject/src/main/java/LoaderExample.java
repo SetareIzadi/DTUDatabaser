@@ -13,7 +13,7 @@ public class LoaderExample {
 
 	public static void main(String[] args) {
 		PhotosAndReportersLoader loader = new PhotosAndReportersLoader();
-		String fileToLoadFrom = "src/main/resources/uploads.csv";
+		String fileToLoadFrom = "mandatoryGroupProject/src/main/resources/uploads.csv";
 		String host = "localhost";
 		int port = 3306;
 		String database = "dkavisen";
