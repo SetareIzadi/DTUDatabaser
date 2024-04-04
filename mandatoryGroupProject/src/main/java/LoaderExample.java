@@ -18,7 +18,7 @@ public class LoaderExample {
 		int port = 3306;
 		String database = "dkavisen";
 		String user = "root";
-		String password = "";
+		String password = "mypassword";
 		String url = "jdbc:mysql://" + host + ":" + port + "/" + database + "?characterEncoding" + "UTF-8";
 
 		try {
@@ -33,7 +33,7 @@ public class LoaderExample {
 			int id = 0;
 			for(PhotoAndReporter photoAndReporter : photosAndReporters) {
 				// Create journalists:
-				String deanStatement = "INSERT INTO Journalists (Journalist_ID,firstName,lastName,CPR_Number,street_Name,civic_Number,city,ZIP_code,country,telephone_Number,email_address) Values ("+id + ", '"+photoAndReporter.getReporter().getFirstName()+"', '"+photoAndReporter.getReporter().getLastName()+"', '"+photoAndReporter.getReporter().getCPR()+"', '"+ photoAndReporter.getReporter().getStreetName()+ "', '"+photoAndReporter.getReporter().getCivicNumber()+"','"+photoAndReporter.getReporter().getCountry()+"', '"+photoAndReporter.getReporter().getZIPCode()+"','Denmark',"+ mandatoryGroupProject.src.main.java.ContactInfoGenerator.getRandomPhoneNumber() +",'"+ mandatoryGroupProject.src.main.java.ContactInfoGenerator.getRandomEmail(photoAndReporter.getReporter().getFirstName()) +"')";
+				String deanStatement = "INSERT INTO Journalists (Journalist_ID,firstName,lastName,CPR_Number,street_Name,civic_Number,city,ZIP_code,country,telephone_Number,email_address) Values ("+id + ", '"+photoAndReporter.getReporter().getFirstName()+"', '"+photoAndReporter.getReporter().getLastName()+"', '"+photoAndReporter.getReporter().getCPR()+"', '"+ photoAndReporter.getReporter().getStreetName()+ "', '"+photoAndReporter.getReporter().getCivicNumber()+"','"+photoAndReporter.getReporter().getCountry()+"', '"+photoAndReporter.getReporter().getZIPCode()+"','Denmark',"+ ContactInfoGenerator.getRandomPhoneNumber() +",'"+ ContactInfoGenerator.getRandomEmail(photoAndReporter.getReporter().getFirstName()) +"')";
 
 				statement.execute(deanStatement);
 				deanStatement = " INSERT INTO Photos (Photo_ID, title, shot_Date, Reporter_ID) VALUES ("+id+",' "+photoAndReporter.getPhoto().getTitle()+"', '"+photoAndReporter.getPhoto().getDate().toString()+"', " + id + ")";
