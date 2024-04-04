@@ -4,10 +4,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class ContactInfoGenerator
 {
-    public static void main(String[] args)
-    {
-        System.out.println(getRandomPhoneNumber());
-    }
     public static String getRandomEmail(String name)
     {
         return name + "@gmail.com";
