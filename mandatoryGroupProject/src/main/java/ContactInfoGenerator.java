@@ -1,5 +1,3 @@
-package mandatoryGroupProject.src.main.java;
-
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ContactInfoGenerator
