@@ -33,7 +33,7 @@ public class LoaderExample {
 			int id = 0;
 			for(PhotoAndReporter photoAndReporter : photosAndReporters) {
 				// Create journalists:
-				String deanStatement = "INSERT INTO Journalists (Journalist_ID,firstName,lastName,CPR_Number,street_Name,civic_Number,city,ZIP_code,country,telephone_Number,email_address) Values ("+id + ", '"+photoAndReporter.getReporter().getFirstName()+"', '"+photoAndReporter.getReporter().getLastName()+"', '"+photoAndReporter.getReporter().getCPR()+"', '"+ photoAndReporter.getReporter().getStreetName()+ "', '"+photoAndReporter.getReporter().getCivicNumber()+"','DEANPHAR', '"+photoAndReporter.getReporter().getZIPCode()+"','"+photoAndReporter.getReporter().getCountry()+"','3029','deanPhader@2008.dk')";;
+				String deanStatement = "INSERT INTO Journalists (Journalist_ID,firstName,lastName,CPR_Number,street_Name,civic_Number,city,ZIP_code,country,telephone_Number,email_address) Values ("+id + ", '"+photoAndReporter.getReporter().getFirstName()+"', '"+photoAndReporter.getReporter().getLastName()+"', '"+photoAndReporter.getReporter().getCPR()+"', '"+ photoAndReporter.getReporter().getStreetName()+ "', '"+photoAndReporter.getReporter().getCivicNumber()+"','"+photoAndReporter.getReporter().getCountry()+"', '"+photoAndReporter.getReporter().getZIPCode()+"','Denmark',"+ mandatoryGroupProject.src.main.java.ContactInfoGenerator.getRandomPhoneNumber() +",'"+ mandatoryGroupProject.src.main.java.ContactInfoGenerator.getRandomEmail(photoAndReporter.getReporter().getFirstName()) +"')";
 
 				statement.execute(deanStatement);
 				deanStatement = " INSERT INTO Photos (Photo_ID, title, shot_Date, Reporter_ID) VALUES ("+id+",' "+photoAndReporter.getPhoto().getTitle()+"', '"+photoAndReporter.getPhoto().getDate().toString()+"', " + id + ")";
