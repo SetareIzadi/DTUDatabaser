@@ -102,6 +102,24 @@ BEGIN
 END $$
 DELIMITER ;
 
+-- You can also add sample data to test the function:
+INSERT INTO Journalists (Journalist_ID, firstName, lastName, CPR_Number, street_Name, civic_Number, city, ZIP_code, country, telephone_Number, email_address)
+VALUES
+(1, 'John', 'Doe', '7501011234', 'Main St', '42', 'Cityville', '1000', 'Denmark', '12345678', 'john.doe@example.com'),
+(2, 'Jane', 'Roe', '8502022345', 'Second St', '43', 'Townsville', '2000', 'Denmark', '87654321', 'jane.roe@example.com');
+
+-- Insert sample articles 
+INSERT INTO Articles (Article_ID, Edition_ID, title, article_Text, topic, read_Count)
+VALUES
+(1, 1, 'Market Report', 'The stock market is...', 'Economy', 150),
+(2, 1, 'City Planning', 'New plans for city infrastructure...', 'Urban Development', 75);
+
+-- Link the articles with journalists 
+INSERT INTO ArticleJournalists (Article_ID, Journalist_ID, role_Name)
+VALUES
+(1, 1, 'Writer'),
+(2, 2, 'Publisher');
+
 -- To run the function, use the following query:
 SELECT TotalArticlesByJournalist(1) AS TotalArticles;
 
