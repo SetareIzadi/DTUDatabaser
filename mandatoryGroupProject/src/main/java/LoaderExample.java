@@ -15,13 +15,13 @@ public class LoaderExample {
 
 	public static void main(String[] args) {
 		PhotosAndReportersLoader loader = new PhotosAndReportersLoader();
-		Path path = Paths.get("DTUDATABASER", "mandatoryGroupProject", "src", "main", "resources", "uploads.csv");
+		Path path = Paths.get("mandatoryGroupProject", "src", "main", "resources", "uploads.csv");
 		String fileToLoadFrom = path.toAbsolutePath().toString();
 		String host = "localhost";
 		int port = 3306;
 		String database = "dkavisen";
 		String user = "root";
-		String password = "my password";
+		String password = "mypassword";
 		String url = "jdbc:mysql://" + host + ":" + port + "/" + database + "?characterEncoding" + "UTF-8";
 
 		try {
