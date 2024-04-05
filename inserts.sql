@@ -59,4 +59,4 @@ INSERT ArticlePhotos VALUES
 ((select Article_ID from Articles where Article_ID=5), (select Photo_ID from Photos where Photo_ID=4)),
 ((select Article_ID from Articles where Article_ID=6), (select Photo_ID from Photos where Photo_ID=5)),
 ((select Article_ID from Articles where Article_ID=7), (select Photo_ID from Photos where Photo_ID=6)),
-((select Article_ID from Articles where Article_ID=7), (select Photo_ID from Photos where Photo_ID=7));
+((select Article_ID from Articles where Article_ID=8), (select Photo_ID from Photos where Photo_ID=7));
