@@ -13,7 +13,8 @@ INSERT Newspapers VALUES
 
 INSERT Roles VALUES
 ('Writer'),
-('Publisher');
+('Publisher'),
+('Reporter');
 
 INSERT Editions VALUES
 ('1', '1', 'Mon Dec 12 00:00:00 CEST 2021', (select Journalist_ID from Journalists where Journalist_ID=0)),
