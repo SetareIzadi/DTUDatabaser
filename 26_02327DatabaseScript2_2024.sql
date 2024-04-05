@@ -63,9 +63,10 @@ FROM Journalists j
 WHERE NOT EXISTS (
     SELECT 1
     FROM Photos p
-    JOIN ArticlePhotos ap ON p.Photo_ID = ap.Photo_ID
+    LEFT JOIN ArticlePhotos ap ON p.Photo_ID = ap.Photo_ID
+    WHERE p.Reporter_ID = j.Journalist_ID
     GROUP BY p.Photo_ID
-    HAVING COUNT(ap.Article_ID) > 1 AND p.Reporter_ID = j.Journalist_ID
+    HAVING COUNT(ap.Article_ID) > 1
 );
 
 --This query determines which topics have an average read count below the overall average across all topics.
