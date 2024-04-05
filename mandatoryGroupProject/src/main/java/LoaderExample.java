@@ -1,4 +1,6 @@
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -13,12 +15,13 @@ public class LoaderExample {
 
 	public static void main(String[] args) {
 		PhotosAndReportersLoader loader = new PhotosAndReportersLoader();
-		String fileToLoadFrom = "mandatoryGroupProject/src/main/resources/uploads.csv";
+		Path path = Paths.get("DTUDATABASER", "mandatoryGroupProject", "src", "main", "resources", "uploads.csv");
+		String fileToLoadFrom = path.toAbsolutePath().toString();
 		String host = "localhost";
 		int port = 3306;
 		String database = "dkavisen";
 		String user = "root";
-		String password = "mypassword";
+		String password = "evj54udw";
 		String url = "jdbc:mysql://" + host + ":" + port + "/" + database + "?characterEncoding" + "UTF-8";
 
 		try {
