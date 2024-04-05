@@ -91,3 +91,30 @@ JOIN ArticlePhotos ap ON p.Photo_ID = ap.Photo_ID AND a.Article_ID = ap.Article_
 /*(3) the statements used to create and apply functions, procedures, triggers, and
 events (as in section 7)*/
 
+-- I've created a function that returns the total number of articles written by a specific journalist.
+DELIMITER $$
+CREATE FUNCTION TotalArticlesByJournalist(journalistID INT) RETURNS INT
+DETERMINISTIC
+BEGIN
+    DECLARE totalArticles INT;
+    SELECT COUNT(*) INTO totalArticles FROM ArticleJournalists WHERE Journalist_ID = journalistID;
+    RETURN totalArticles;
+END $$
+DELIMITER ;
+
+-- To run the function, use the following query:
+SELECT TotalArticlesByJournalist(1) AS TotalArticles;
+
+
+
+-- I've created a trigger that prevents the insertion of a journalist with an invalid email address.
+DELIMITER $$
+CREATE TRIGGER BeforeJournalistInsert
+BEFORE INSERT ON Journalists FOR EACH ROW
+BEGIN
+    IF NEW.email_address NOT LIKE '%@%' THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Invalid email address';
+    END IF;
+END $$
+DELIMITER ;
