@@ -50,3 +50,13 @@ INSERT ArticleJournalists VALUES
 ((select Article_ID from Articles where Article_ID=8), (select Journalist_ID from Journalists where Journalist_ID=8), (select role_Name from Roles where role_Name='Publisher')),
 ((select Article_ID from Articles where Article_ID=9), (select Journalist_ID from Journalists where Journalist_ID=9), (select role_Name from Roles where role_Name='Writer')),
 ((select Article_ID from Articles where Article_ID=10), (select Journalist_ID from Journalists where Journalist_ID=10), (select role_Name from Roles where role_Name='Publisher'));
+
+INSERT ArticlePhotos VALUES
+((select Article_ID from Articles where Article_ID=1), (select Photo_ID from Photos where Photo_ID=0)),
+((select Article_ID from Articles where Article_ID=2), (select Photo_ID from Photos where Photo_ID=1)),
+((select Article_ID from Articles where Article_ID=3), (select Photo_ID from Photos where Photo_ID=2)),
+((select Article_ID from Articles where Article_ID=4), (select Photo_ID from Photos where Photo_ID=3)),
+((select Article_ID from Articles where Article_ID=5), (select Photo_ID from Photos where Photo_ID=4)),
+((select Article_ID from Articles where Article_ID=6), (select Photo_ID from Photos where Photo_ID=5)),
+((select Article_ID from Articles where Article_ID=7), (select Photo_ID from Photos where Photo_ID=6)),
+((select Article_ID from Articles where Article_ID=7), (select Photo_ID from Photos where Photo_ID=7));

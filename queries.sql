@@ -77,6 +77,14 @@ create table ArticleJournalists (
     FOREIGN KEY (role_Name) REFERENCES Roles(role_Name)
 );
 
+create table ArticlePhotos (
+	Article_ID int,
+    Photo_ID int,
+    
+    FOREIGN KEY (Article_ID) REFERENCES Articles(Article_ID),
+    FOREIGN KEY (Photo_ID) REFERENCES Photos(Photo_ID)
+);
+
 
 
 
