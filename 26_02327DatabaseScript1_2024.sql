@@ -1,4 +1,4 @@
---(1.1) An overview of our dkavisen database
+-- (1.1) An overview of our dkavisen database
 drop database if exists dkavisen;
 create database dkavisen;
 use dkavisen;
@@ -86,15 +86,15 @@ create table ArticlePhotos (
     FOREIGN KEY (Photo_ID) REFERENCES Photos(Photo_ID)
 );
 
---(1.2) An overview of the views for our dkavisen database.
+-- (1.2) An overview of the views for our dkavisen database.
 
---This view lists articles that have a read count above a certain threshold, indicating high reader interest or popularity.
+-- This view lists articles that have a read count above a certain threshold, indicating high reader interest or popularity.
 CREATE VIEW PopularArticles AS
 SELECT Article_ID, title, topic, read_Count
 FROM Articles
 WHERE read_Count > 1000;
 
---This view identifies journalists who have written a significant number of articles, indicating their active contribution to the newspaper.
+-- This view identifies journalists who have written a significant number of articles, indicating their active contribution to the newspaper.
 CREATE VIEW ActiveJournalists AS
 SELECT j.Journalist_ID, j.firstName, j.lastName, COUNT(a.Article_ID) AS ArticleCount
 FROM Journalists j
@@ -103,19 +103,19 @@ JOIN Articles a ON aj.Article_ID = a.Article_ID
 GROUP BY j.Journalist_ID, j.firstName, j.lastName
 HAVING COUNT(a.Article_ID) > 5;
 
---This view displays photos taken in the last year, highlighting recent visual content contributions.
+-- This view displays photos taken in the last year, highlighting recent visual content contributions.
 CREATE VIEW RecentPhotos AS
 SELECT Photo_ID, title, shot_Date, Reporter_ID
 FROM Photos
 WHERE shot_Date > DATE_SUB(CURDATE(), INTERVAL 1 YEAR);
 
---This view lists editions along with their corresponding newspaper titles, useful for quickly identifying the source publication of each edition.
+-- This view lists editions along with their corresponding newspaper titles, useful for quickly identifying the source publication of each edition.
 CREATE VIEW EditionsByNewspaperTitle AS
 SELECT e.Edition_ID, e.publication_Date, n.title AS NewspaperTitle
 FROM Editions e
 JOIN Newspapers n ON e.Newspaper_ID = n.Newspaper_ID;
 
---(2) The statements used to populate the tables
+-- (2) The statements used to populate the tables
 
 INSERT Newspapers VALUES
 ('1', 'Sales', 'Mon Dec 12 00:00:00 CEST 2021', 'Weekly'),
