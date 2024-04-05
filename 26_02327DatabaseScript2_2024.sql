@@ -41,7 +41,7 @@ INNER JOIN (
     GROUP BY topic
 ) tm ON t.topic = tm.topic AND t.read_Count = tm.MaxRead;
 
---This query ranks journalists based on the total read count of all articles they've written, showing the top 10.
+-- This query ranks journalists based on the total read count of all articles they have written, showing the top 10.
 SELECT 
     j.Journalist_ID, 
     j.firstName, 
@@ -123,6 +123,38 @@ VALUES
 
 -- To run the function, use the following query:
 SELECT TotalArticlesByJournalist(1) AS TotalArticles;
+
+
+
+-- I've created a procedure that inserts a new article into the database.
+CREATE PROCEDURE InsertArticle(
+	IN p_Article_ID int,
+    IN p_Edition_ID INT,
+    IN p_title VARCHAR(255),
+    IN p_article_Text TEXT,
+    IN p_topic VARCHAR(255)
+)
+BEGIN
+    INSERT INTO Articles (
+		Article_ID,
+        Edition_ID,
+        title,
+        article_Text,
+        topic,
+        read_Count
+    ) VALUES (
+		p_Article_ID,
+        p_Edition_ID,
+        p_title,
+        p_article_Text,
+        p_topic,
+        0 
+    );
+END//
+DELIMITER ;
+
+-- To run the procedure, use the following query:
+Call InsertArticle(11,1,'World cup final', 'text', 'sport');
 
 
 
