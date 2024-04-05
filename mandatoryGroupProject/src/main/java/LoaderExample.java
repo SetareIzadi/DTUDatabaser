@@ -21,7 +21,7 @@ public class LoaderExample {
 		int port = 3306;
 		String database = "dkavisen";
 		String user = "root";
-		String password = "evj54udw";
+		String password = "my password";
 		String url = "jdbc:mysql://" + host + ":" + port + "/" + database + "?characterEncoding" + "UTF-8";
 
 		try {
